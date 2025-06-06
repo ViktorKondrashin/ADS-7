@@ -33,7 +33,7 @@ int Train::getLength() {
     tempCar = tempCar->next;
     ++countOp;
     ++countCar;
-    // Если лампочка включена, то выключаем её и проверяем, 
+    // Если лампочка включена, то выключаем её и проверяем,
     // что не выключили первую лампочку
     if (tempCar->light == true) {
       tempCar->light = false;
