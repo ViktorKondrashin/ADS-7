@@ -26,7 +26,6 @@ int Train::getLength() {
   }
   Car* tempCar = first;
   first->light = true;
-  countOp = 0;
   int countCar = 1, reverseCountCar;
   do {
     // Переходим на следующий вагон
