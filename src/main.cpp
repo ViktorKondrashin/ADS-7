@@ -1,6 +1,6 @@
 // Copyright 2022 NNTU-CS
 #include <iostream>
-#include <ctime> 
+#include <ctime>
 #include <random>
 #include "train.h"
 
@@ -16,8 +16,7 @@ void runTest(int n, char initLight) {
   for (int i = 1; i < n; ++i) {
     if (isNoRand) {
       t.addCar(initLight);
-    }
-    else {
+    } else {
       t.addCar(coin(gen));
     }
     if (i % 100 == 0) {
@@ -34,7 +33,7 @@ void runTest(int n, char initLight) {
 // 0 - все лампочки включены 1 - все выключены
 // 2 - рандомное распределение
 void runTestT(int n, char initLight) {
-  long long sum = 0;
+  clock_t sum = 0;
   Train t;
   int isNoRand = 1;
   if (initLight == 2) isNoRand = 0;
@@ -44,15 +43,14 @@ void runTestT(int n, char initLight) {
   for (int i = 1; i < n; ++i) {
     if (isNoRand) {
       t.addCar(initLight);
-    }
-    else {
+    } else {
       t.addCar(coin(gen));
     }
     if (i % 100 == 0) {
       clock_t t_start = std::clock();
       int length = t.getLength();
       clock_t t_end = std::clock();
-      sum += 1000.0 * double(t_end - t_start) / CLOCKS_PER_SEC;
+      sum += 1000.0 * static_cast<double>(t_end - t_start) / CLOCKS_PER_SEC;
       std::cout
           << length << " "
           << sum
